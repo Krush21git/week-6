@@ -55,23 +55,23 @@ export class StoreTable extends Component {
         );
     }
 
-    async addStores() {
+    //async addStores() {
 
-        this.setState({ newstore: [], loading: true });
-        const data = await fetch(
-            'stores', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                id: 0,
-                name: "Store E"
-            })
-        }).then((data) => data.json());
+    //    this.setState({ newstore: [], loading: true });
+    //    const data = await fetch(
+    //        'stores', {
+    //        method: 'POST',
+    //        headers: { 'Content-Type': 'application/json' },
+    //        body: JSON.stringify({
+    //            id: 0,
+    //            name: "Store E"
+    //        })
+    //    }).then((data) => data.json());
 
-        this.setState({ newstore: data, loading: false });
+    //    this.setState({ newstore: data, loading: false });
 
-        this.populateStoresData();
-    }
+    //    this.populateStoresData();
+    //}
 
 
 
