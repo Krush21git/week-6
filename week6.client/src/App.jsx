@@ -3,7 +3,8 @@ import './App.css';
 //import { Layout } from './Layout';
 import { StoreTable } from './components/stores/StoreTable';
 import { CustomerTable } from './components/customers/CustomerTable';
-
+import { StoreProvider } from './context/StoreContext';
+import AddStoreComponent from './components/stores/AddStoreComponent';
 function App() {
     const [forecasts, setForecasts] = useState();
 
@@ -44,6 +45,12 @@ function App() {
 
             <StoreTable />
             <CustomerTable />
+            <StoreProvider>
+                <div>
+                    <h1>Store Management</h1>
+                    <AddStoreComponent />
+                </div>
+            </StoreProvider>
 
         </div>
     );
