@@ -1,11 +1,29 @@
 // src/context/StoreContext.jsx
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 export const StoreContext = createContext();
 
 export const StoreProvider = ({ children }) => {
     const [stores, setStores] = useState([]);
+
+    const fetchStores = async () => {
+        try {
+            const response = await fetch('/api/stores'); // Make sure the endpoint is correct
+            if (response.ok) {
+                const storeData = await response.json();
+                setStores(storeData);
+            } else {
+                console.error('Failed to fetch stores');
+            }
+        } catch (error) {
+            console.error('Error fetching stores:', error);
+        }
+    };
+
+    useEffect(() => {
+        fetchStores();
+    }, []);
 
     const addStore = async (storeName) => {
         try {
